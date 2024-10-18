@@ -261,7 +261,8 @@ const usernamesToSearch = [
     console.log(`Processing completed in ${timeDiff}ms.`);
 
     // Write the results to a JSON file
-    fs.writeFileSync("results.json", JSON.stringify(resultsData, null, 2));
+    const filename = `results-${new Date().toISOString()}.json`;
+    fs.writeFileSync(filename, JSON.stringify(resultsData, null, 2));
 
     // Disconnect from the browser after processing all usernames
     await browser.disconnect();
